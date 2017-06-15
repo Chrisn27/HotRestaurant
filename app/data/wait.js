@@ -14,4 +14,13 @@ var wait =
         }
     ]
 
-module.exports = wait;
+var tableModel = {
+    push(data) {
+        wait.push(data);
+    },
+    get() {
+        return wait;
+    }
+}
+
+module.exports = tableModel;

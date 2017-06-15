@@ -1,12 +1,15 @@
-var htmlRouting = function(app) {
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "home.html"));
+var path = require('path');
+var express = require('express');
+var router = express.Router();
+
+router.get("/", function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/home.html"));
 });
-app.get("/tables", function(req, res) {
-  res.sendFile(path.join(__dirname, "tables.html"));
+router.get("/tables", function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/tables.html"));
 });
-app.get("/reserve", function(req, res) {
-  res.sendFile(path.join(__dirname, "reserve.html"));
+router.get("/reserve", function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/reserve.html"));
 });
-};
-module.exports = htmlRouting;
+
+module.exports = router;

@@ -13,5 +13,14 @@ var table =
             "customerID": "test"
         }
     ]
+    
+var tableModel = {
+    push(data) {
+        table.push(data);
+    },
+    get() {
+        return table;
+    }
+}
 
-module.exports = table;
+module.exports = tableModel;
