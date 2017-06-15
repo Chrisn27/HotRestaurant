@@ -71,10 +71,33 @@
 	$(document).ready(function () {
 		$.get("/api/table", function (dataTable) {
 			console.log(dataTable);
+
+			// Loop through and display each of the customers
+                for (var i=0; i<dataTable.length; i++){
+                    // Create the HTML Well (Section) and Add the table content for each reserved table
+                    var tableSection = $("<div>");
+                    tableSection.addClass('well');
+                    tableSection.attr('id', 'tableWell-' + i+1)
+                    $('#tableSection').append(tableSection);
+                    var tableNumber = i + 1;
+                    // Then display the remaining fields in the HTML (Section Name, Date, URL)
+                    $("#tableWell-"+ i+1).append('<h2><span class="label label-primary">' + tableNumber + "</span> | " + dataTable[i].customerID + "</h2>");
+                }
 		});
 
 		$.get("/api/wait", function (dataWait) {
 			console.log(dataWait);
+			// Loop through and display each of the customers
+                for (var i=0; i<dataWait.length; i++){
+                    // Create the HTML Well (Section) and Add the table content for each reserved table
+                    var tableSection = $("<div>");
+                    tableSection.addClass('well');
+                    tableSection.attr('id', 'waitWell-' + i+1)
+                    $('#waitlistSection').append(tableSection);
+                    var tableNumber = i + 1;
+                    // Then display the remaining fields in the HTML (Section Name, Date, URL)
+                    $("#waitWell-"+ i+1).append('<h2><span class="label label-primary">' + tableNumber + "</span> | " + dataWait[i].customerID + "</h2>");
+                }
 		});
 
 
